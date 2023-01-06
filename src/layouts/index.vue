@@ -7,7 +7,9 @@ import iSider from './sider/index.vue'
         <i-sider />
         <el-container>
             <!-- direction="vertical" -->
-            <el-header style="background-color: cornflowerblue;">Header</el-header>
+            <el-header style="background-color: cornflowerblue;">
+                Header
+            </el-header>
             <el-main style="background-color: beige;">Main</el-main>
             <!-- <Header />
         <History />
