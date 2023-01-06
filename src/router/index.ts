@@ -7,6 +7,10 @@ const routes: RouteRecordRaw[] = [
         path: '/login',
         name: 'login',
         component: () => import('@/views/account/login.vue')
+    },
+    {
+        path: '/',
+        component: () => import('@/layouts/index.vue')
     }
 ]
 // 工厂函数创建 router 实例
