@@ -9,15 +9,24 @@ const frameInRoutes: RouteRecordRaw[] = [
         redirect: {
             name: 'dashboard-console'
         },
-        isHide: true,
-        component: () => import('@/layouts/index.vue')
+        meta: {
+            isHide: true
+        },
+        component: () => import('@/layouts/index.vue'),
+        children: [
+            {
+                path: 'index',
+                name: 'index',
+                redirect: { name: 'dashboard-console' }
+            }
+        ]
     },
     dashboard,
     sql
 ]
 
 // 主框架外显示
-const publicRoutes = [
+const publicRoutes: RouteRecordRaw[] = [
     // 登录
     {
         path: '/login',
@@ -58,7 +67,7 @@ const publicRoutes = [
 ]
 
 // 错误页面
-const errorPageRoutes = [
+const errorPageRoutes: RouteRecordRaw[] = [
     {
         path: '/403',
         name: '403',

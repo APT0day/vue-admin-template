@@ -1,36 +1,25 @@
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref } from 'vue'
 import { settings } from '@/settings'
 import iLogo from './logo.vue'
 import iItem from './item.vue'
+import menuListRoutes from '@/hooks/useMenu'
 
 const isCollapse = ref(false)
-const menus = ref([
-    {
-        path: 'dashboard',
-        name: 'dashboard',
-        meta: { title: 'dashboard' }
-    },
-    {
-        path: 'test',
-        name: 'test',
-        meta: { title: 'test' }
-    }
-])
+
+const acticeIndex = ref<string>("")
+
+
+
 </script>
 
 <template>
-    <el-aside class="layout-sider" width="250px">
+    <el-aside class="layout-sider" :width="settings.layout.sidebarWidth">
         <div v-if="settings.layout.showLogo" class="layout-sider-logo">
             <i-logo />
         </div>
-        <el-menu :collapse="isCollapse">
-            <i-item :menu="menus" />
+        <el-menu :collapse="isCollapse" :default-active="acticeIndex">
+            <i-item :menu="menuListRoutes.menus.value" />
         </el-menu>
-        sider
     </el-aside>
 </template>
-
-<style lang="scss" scoped>
-
-</style>

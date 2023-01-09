@@ -1,30 +1,36 @@
+import { RouteRecordRaw } from "vue-router";
+
 const meta = {
-    auth: true
+  auth: true,
 };
 
-const pre = 'sql-';
+const pre = "sql-";
 
 export default {
-    path: '/sql',
-    name: 'sql',
-    redirect: {
-        name: `${pre}sql1`
+  path: "/sql",
+  name: "sql",
+  redirect: {
+    name: `${pre}sql1`,
+  },
+  meta: {
+    ...meta,
+    menu: {
+      title: "sql",
+      icon: "ios-paper",
     },
-    meta: {
+  },
+  component: () => import("@/layouts/index.vue"),
+  children: [
+    {
+      path: "sql1",
+      name: `${pre}sql1`,
+      meta: {
         ...meta,
-        title: 'sql',
-        icon: 'ios-paper'
+        menu: {
+          title: "sql1",
+        },
+      },
+      component: () => import("@/views/sql/sql1.vue"),
     },
-    component: () => import('@/layouts/index.vue'),
-    children: [
-        {
-            path: 'sql1',
-            name: `${pre}sql1`,
-            meta: {
-                ...meta,
-                title: 'sql1',
-            },
-            component: () => import('@/views/sql/sql1.vue')
-        }
-    ]
-};
+  ],
+} as RouteRecordRaw;
