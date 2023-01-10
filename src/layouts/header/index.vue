@@ -7,7 +7,7 @@ import iAvatar from './avatar.vue'
 <template>
     <el-header class="layout-header">
         <div class="layout-header-collapse">
-            <!-- <i-collapse /> -->
+            <i-collapse />
         </div>
         <div class="layout-header-breadcrumb">
             <i-breadcrumb />

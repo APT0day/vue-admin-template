@@ -1,12 +1,11 @@
 interface Menu {
+  title?: string;
+  icon?: string;
   path?: string;
-  name: string;
-  meta: {
-    menu: {
-      icon?: string;
-      title: string;
-    };
-  };
+  name?: string;
+  route?: string;
+  sort?: number;
+  meta?: {};
   children?: Menu[];
 }
 

@@ -44,6 +44,7 @@
   }
 
   &-header {
+    background-color: #fff;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #e5e7eb;
@@ -53,6 +54,15 @@
     &-collapse {
       display: flex;
       align-items: center;
+      &-container {
+        padding-right: 12px;
+        cursor: pointer;
+        &-svg {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
     }
 
     &-breadcrumb {
@@ -67,8 +77,6 @@
       justify-content: flex-end;
       height: 100%;
       flex: 1 1 0%;
-
-      
     }
   }
 }

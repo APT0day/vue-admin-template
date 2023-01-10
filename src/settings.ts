@@ -6,8 +6,10 @@ export const settings = {
 
     // layout
     layout: {
-        // 侧边栏宽度
-        sidebarWidth: '250px',
+        // 侧边栏最大宽度
+        maxSidebarWidth: '250px',
+        // 侧边栏最小宽度
+        minSidebarWidth: '64px',
         // 是否显示侧边栏 logo
         showLogo: true,
         // 侧边栏 logo 地址

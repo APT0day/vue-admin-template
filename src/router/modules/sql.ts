@@ -1,22 +1,15 @@
 import { RouteRecordRaw } from "vue-router";
 
-const meta = {
-  auth: true,
-};
-
 const pre = "sql-";
 
 export default {
   path: "/sql",
   name: "sql",
-  redirect: {
-    name: `${pre}sql1`,
-  },
   meta: {
-    ...meta,
+    auth: true,
     menu: {
       title: "sql",
-      icon: "ios-paper",
+      icon: "Plus",
     },
   },
   component: () => import("@/layouts/index.vue"),
@@ -25,7 +18,6 @@ export default {
       path: "sql1",
       name: `${pre}sql1`,
       meta: {
-        ...meta,
         menu: {
           title: "sql1",
         },

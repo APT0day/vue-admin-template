@@ -2,6 +2,7 @@
 import iSider from './sider/index.vue'
 import iHeader from './header/index.vue'
 import router from '@/router'
+import useMenu from '@/hooks/useSiderMenuList'
 </script>
 
 <template>
@@ -10,9 +11,7 @@ import router from '@/router'
         <el-container direction="vertical">
             <i-header />
             <el-main style="background-color: beige;">
-                {{ $router.getRoutes() }}
-                ==============================
-                {{ router.getRoutes().filter((route) => route.children.length && route.meta.menu) }}
+                {{ useMenu.menus }}
             </el-main>
             <!-- <Header />
             <History />
