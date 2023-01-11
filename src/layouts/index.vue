@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import iSider from './sider/index.vue'
 import iHeader from './header/index.vue'
-import router from '@/router'
-import useMenu from '@/hooks/useSiderMenuList'
+import iHistory from './history/index.vue'
 </script>
 
 <template>
@@ -10,12 +9,14 @@ import useMenu from '@/hooks/useSiderMenuList'
         <i-sider />
         <el-container direction="vertical">
             <i-header />
-            <el-main style="background-color: beige;">
-                {{ useMenu.menus }}
+            <i-history />
+            <el-main class="layout-main">
+                <router-view v-slot="{ Component }">
+                    <keep-alive>
+                        <component :is="Component" />
+                    </keep-alive>
+                </router-view>
             </el-main>
-            <!-- <Header />
-            <History />
-            <PageView /> -->
         </el-container>
     </el-container>
 </template>

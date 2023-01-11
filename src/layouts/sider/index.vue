@@ -1,36 +1,52 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, computed, watchEffect } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { settings } from '@/settings'
 import iLogo from './logo.vue'
 import iItem from './item.vue'
-import useSiderMenuList from '@/hooks/useSiderMenuList'
+import useLayout from '@/hooks/useLayout'
 
-const acticeIndex = ref<string>("dashboard-console")
+const acticeIndex = ref<string | undefined | null | symbol>("")
 
 const router = useRouter()
+const route = useRoute()
 const handleClick = () => {
     router.push('/')
 }
 
 const isCollapse = computed(() => {
-    return useSiderMenuList.isCollapse.value
+    return useLayout.isCollapse.value
+})
+
+watchEffect(() => {
+    acticeIndex.value = route.name
 })
 </script>
 
 <template>
-    <el-aside class="layout-sider" :width="useSiderMenuList.isCollapse.value ? settings.layout.minSidebarWidth : settings.layout.maxSidebarWidth">
+    <el-aside class="layout-sider"
+        :width="useLayout.isCollapse.value ? settings.layout.minSidebarWidth : settings.layout.maxSidebarWidth">
         <div v-if="settings.layout.showLogo" class="layout-sider-logo" @click="handleClick()">
             <i-logo />
         </div>
-        <el-menu :collapse="isCollapse" :default-active="acticeIndex" unique-opened collapse-transition>
-            <i-item :menu="useSiderMenuList.menus.value" />
+        <el-menu :collapse="isCollapse" :default-active="acticeIndex" unique-opened>
+            <i-item :menu="useLayout.menus.value" />
         </el-menu>
     </el-aside>
 </template>
 
-<style>
+<style lang="scss" scoped>
+/* 加过渡给侧边导航*/
+.el-aside {
+    transition: width 0.25s;
+    -webkit-transition: width 0.25s;
+    -moz-transition: width 0.25s;
+    -webkit-transition: width 0.25s;
+    -o-transition: width 0.25s;
+}
+
 .el-menu {
-  border-right: none;
+    transition: all 10ms;
+    border-right: none;
 }
 </style>

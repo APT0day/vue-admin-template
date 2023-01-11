@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useSiderMenuList from '@/hooks/useSiderMenuList'
+import useSiderMenuList from '@/hooks/useLayout'
 const handleClick = () => {
     useSiderMenuList.changeCollapse()
 }
