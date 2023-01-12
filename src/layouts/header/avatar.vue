@@ -2,6 +2,8 @@
 import { useRouter } from 'vue-router';
 import { removeToken } from '@/utils/auth'
 import { useUserStore } from '@/store/user'
+import { getUserInfo } from "@/api/user"
+
 const userStore = useUserStore()
 const router = useRouter()
 

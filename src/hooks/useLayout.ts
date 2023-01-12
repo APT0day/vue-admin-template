@@ -3,6 +3,7 @@ import router from "@/router";
 import {
   RouteRecordNormalized,
   RouteLocationNormalizedLoaded,
+  RouteLocationNormalized,
   RouteRecordRaw,
 } from "vue-router";
 import { IMenu } from "@/types/menu";
@@ -67,28 +68,30 @@ class Menu {
   // 获取历史标签
   private getHistory() {
     const routes = [] as RouteRecordRaw[];
-    // router.getRoutes().map((r) => routes.push(...r.children));
+    router.getRoutes().map((r) => routes.push(...r.children));
 
-    return router
-      .getRoutes()
-      .filter((route) => !route.children.length && route.meta.menu)
-      .map((m) => {
-        return {
-          title: m.meta.menu?.title,
-          name: m.name,
-        };
-      }) as IMenu[];
-
-    // return this.history.value.filter((m) => {
-    //   return routes.some((r) => r.name == m.route);
-    // });
+    return this.history.value.filter((m) => {
+      return routes.some((r) => r.name == m.name);
+    });
   }
 
+  // 增加历史标签
+  addHistoryTab(route: RouteLocationNormalized) {
+    if (!route.meta?.menu) return;
+
+    const menu: IMenu = { ...route.meta?.menu, name: route.name as string };
+    const isHas = this.history.value.some((menu) => menu.name == route.name);
+    if (!isHas) this.history.value.unshift(menu);
+    if (this.history.value.length > 10) {
+      this.history.value.pop();
+    }
+  }
+
+  // 移除历史标签
   removeHistoryTab(menu: IMenu) {
     const index = this.history.value.indexOf(menu);
     this.history.value.splice(index, 1);
   }
-  
 }
 
 export default new Menu();

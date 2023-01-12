@@ -1,6 +1,5 @@
 import { RouteRecordRaw } from "vue-router";
 import dashboard from "./modules/dashboard";
-import sql from "./modules/sql";
 import errors from "./modules/errors";
 
 // 主框架内显示
@@ -62,7 +61,6 @@ const routes: RouteRecordRaw[] = [
   //     component: () => import('@/views/account/registerResult.vue')
   // },
   dashboard,
-  sql,
   errors,
 ];
 

@@ -16,12 +16,9 @@ watchEffect(() => {
         <el-space wrap class="layout-history-space">
             <el-tag class="layout-history-space-tag" v-for="tag in useLayout.history.value" size="large"
                 :type="activeHistory === tag.title ? '' : 'info'" :closable="activeHistory === tag.title ? false : true"
-                @click="$router.push({ name: tag.name })"
-                @close="useLayout.removeHistoryTab(tag)">{{ tag.title }}</el-tag>
+                @click="$router.push({ name: tag.name })" @close="useLayout.removeHistoryTab(tag)">{{
+    tag.title
+                }}</el-tag>
         </el-space>
     </div>
 </template>
-
-<style lang="scss" scoped>
-
-</style>

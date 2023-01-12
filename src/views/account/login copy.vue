@@ -55,73 +55,50 @@ const handleLogin = () => {
 
 <template>
     <div class="login">
-        <!-- <el-card class="login-card" shadow="always"> -->
-        <div class="login-box">
-            <div class="login-box-title">
+        <el-card class="login-card">
+            <div class="login-card-title">
                 <span>通用后台管理系统</span>
             </div>
-            <el-form ref="loginFormRef" class="login-box-form" :model="loginForm" :rules="loginRules">
+            <el-form ref="loginFormRef" class="login-card-form" :model="loginForm" :rules="loginRules">
                 <el-form-item prop="username">
-                    <el-input v-model="loginForm.username" type="text" size="large" placeholder="请输入账号"
-                        autocomplete="off" />
+                    <el-input v-model="loginForm.username" type="text" placeholder="请输入账号" autocomplete="off" />
                 </el-form-item>
                 <el-form-item prop="password">
-                    <el-input v-model="loginForm.password" type="password" size="large" placeholder="请输入密码"
-                        autocomplete="off" />
+                    <el-input v-model="loginForm.password" type="password" placeholder="请输入密码" autocomplete="off" />
                 </el-form-item>
-                <div class="login-box-form-forget"><a>忘记密码</a></div>
+                <div class="login-card-form-forget"><a>忘记密码</a></div>
                 <el-form-item>
-                    <el-button type="primary" class="login-box-form-button" @click="handleLogin()">登陆</el-button>
+                    <el-button type="primary" style="width:100%;margin-bottom:30px;" @click="handleLogin()">登陆</el-button>
                 </el-form-item>
-                <div class="login-box-form-register">还没有账号?<a>注册账号</a></div>
+                <div class="login-card-form-register">还没有账号?<a>注册账号</a></div>
             </el-form>
-        </div>
-        <!-- </el-card> -->
+        </el-card>
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .login {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     height: 100vh;
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    overflow: auto;
     background: url('../../assets/background.webp');
     background-repeat: no-repeat;
     background-size: cover;
-    justify-content: center;
 
-    &-box {
-        width: 25rem;
-        margin-left: auto;
-        margin-right: auto;
-        justify-content: center;
-        border-radius: 1.5rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-        background-color: #f3f4f6;
+    &-card {
+        padding: 1px 0;
+        text-align: center;
+        width: 400px;
+        margin: 0 auto;
 
         &-title {
-            text-align: center;
-            font-size: 2rem;
+            font-size: 34px;
         }
-
-        &-form {
-            margin-top: 2rem;
-
-            &-forget {
-                font-size: 0.9rem;
-                text-align: right;
-            }
-
-            &-button {
-                width: 100%;
-            }
-
-            &-register {
-                text-align: center;
+        &-form{
+            &-forget{
+                float: right;
             }
         }
     }
