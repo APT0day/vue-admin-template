@@ -1,6 +1,7 @@
 import { RouteRecordRaw } from "vue-router";
 import dashboard from "./modules/dashboard";
 import errors from "./modules/errors";
+import test from "./modules/test"
 
 // 主框架内显示
 const routes: RouteRecordRaw[] = [
@@ -22,9 +23,6 @@ const routes: RouteRecordRaw[] = [
   {
     path: "/login",
     name: "login",
-    meta: {
-      title: "login",
-    },
     component: () => import("@/views/account/login.vue"),
   },
   {
@@ -36,33 +34,23 @@ const routes: RouteRecordRaw[] = [
   // {
   //     path: '/forgetPwd',
   //     name: 'forgetPwd',
-  //     meta: {
-  //         title: 'forgetPwd'
-  //     },
   //     component: () => import('@/views/account/forgetPwd.vue')
   // },
   // // 注册
   // {
   //     path: '/register',
   //     name: 'register',
-  //     meta: {
-  //         title: 'register'
-  //     },
   //     component: () => import('@/views/account/register.vue')
   // },
   // // 注册结果
   // {
   //     path: '/register/result',
   //     name: 'register-result',
-  //     meta: {
-  //         auth: true,
-  //         title: 'register-result'
-  //     },
   //     component: () => import('@/views/account/registerResult.vue')
   // },
   dashboard,
   errors,
+  test
 ];
 
-// 重新组织后导出
 export default routes;
