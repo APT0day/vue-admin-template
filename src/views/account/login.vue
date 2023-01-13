@@ -106,10 +106,10 @@ const handleLogin = () => {
         &-title {
             text-align: center;
             font-size: 2rem;
+            margin-bottom: 2rem;
         }
 
         &-form {
-            margin-top: 2rem;
 
             &-forget {
                 font-size: 0.9rem;
