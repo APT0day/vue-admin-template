@@ -2,9 +2,9 @@
 import { reactive, ref } from "vue"
 import { login } from "@/api/account"
 import { getUserInfo } from "@/api/user"
-import Cookie from "js-cookie"
 import { useRouter } from "vue-router"
 import { useUserStore } from "@/store/user"
+import { setToken } from "@/utils/auth"
 
 const loginForm = reactive({
     username: '',
@@ -39,11 +39,10 @@ const loginRules = reactive({
 
 const handleLogin = () => {
     loginFormRef.value.validate().then(() => {
-        console.log('校验通过')
         login(loginForm).then(res => {
             if (res.token) {
-                Cookie.set('token', res.token)
-                userStore.token = res.token
+                setToken(res.token)
+                userStore.setToken(res.token)
                 router.push('/')
                 getUserInfo()
             }

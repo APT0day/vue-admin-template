@@ -19,7 +19,6 @@ const routes: RouteRecordRaw[] = [
       },
     ],
   },
-  // 登录
   {
     path: "/login",
     name: "login",
@@ -30,24 +29,6 @@ const routes: RouteRecordRaw[] = [
     name: "notFound",
     component: () => import("@/views/errors/404.vue"),
   },
-  // // 忘记密码
-  // {
-  //     path: '/forgetPwd',
-  //     name: 'forgetPwd',
-  //     component: () => import('@/views/account/forgetPwd.vue')
-  // },
-  // // 注册
-  // {
-  //     path: '/register',
-  //     name: 'register',
-  //     component: () => import('@/views/account/register.vue')
-  // },
-  // // 注册结果
-  // {
-  //     path: '/register/result',
-  //     name: 'register-result',
-  //     component: () => import('@/views/account/registerResult.vue')
-  // },
   dashboard,
   errors,
   test

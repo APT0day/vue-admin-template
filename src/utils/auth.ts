@@ -1,13 +1,13 @@
 import Cookies from 'js-cookie'
 
 // 写入 cookie
-export const setToken = (name: string, value: string) => {
-    Cookies.set(name, value)
+export const setToken = (value: string) => {
+    Cookies.set('token', value)
 }
 
 // 获取 token
-export const getToken = (name: string) => {
-    Cookies.get(name)
+export const getToken = () => {
+    return Cookies.get('token')
 }
 
 // 获取所有 token
@@ -16,6 +16,6 @@ export const getAllToken = () => {
 }
 
 // 删除 token
-export const removeToken = (name: string) => {
-    Cookies.remove(name)
+export const removeToken = () => {
+    Cookies.remove('token')
 }
