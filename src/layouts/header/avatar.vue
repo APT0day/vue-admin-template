@@ -38,3 +38,19 @@ const toLogin = () => {
         </template>
     </el-dropdown>
 </template>
+
+<style lang="scss" scoped>
+.layout-header-right-username {
+    display: flex;
+    cursor: pointer;
+
+    &-name {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        font-size: 16px;
+        font-weight: 500;
+        margin-left: 12px;
+    }
+}
+</style>

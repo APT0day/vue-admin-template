@@ -17,3 +17,33 @@ import iAvatar from './avatar.vue'
         </div>
     </el-header>
 </template>
+
+<style lang="scss" scoped>
+.layout-header {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: right;
+    font-size: 16px;
+
+    &-collapse {
+        display: flex;
+        align-items: center;
+    }
+
+    &-breadcrumb {
+        display: flex;
+        align-items: center;
+    }
+
+    &-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        justify-content: flex-end;
+        height: 100%;
+        flex: 1 1 0%;
+    }
+}
+</style>

@@ -19,4 +19,15 @@ const handleClick = () => {
 .rotate-180 {
     transform: rotate(180deg);
 }
+
+.layout-header-collapse-container {
+    padding-right: 12px;
+    cursor: pointer;
+
+    &-svg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
 </style>

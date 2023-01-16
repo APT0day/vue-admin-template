@@ -49,4 +49,16 @@ watchEffect(() => {
     transition: all 10ms;
     border-right: none;
 }
+
+.layout-sider {
+    background-color: #fff;
+    min-height: 100vh;
+    height: 100%;
+    border-right: 1px solid #e5e7eb;
+
+    &-logo {
+        display: flex;
+        justify-content: center;
+    }
+}
 </style>

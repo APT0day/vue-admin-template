@@ -29,3 +29,19 @@ watchEffect(() => {
         </el-container>
     </el-container>
 </template>
+
+<style lang="scss" scoped>
+.login {
+    height: 100vh;
+    width: 100%;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    &-main {
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+    }
+}
+</style>

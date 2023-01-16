@@ -22,3 +22,22 @@ watchEffect(() => {
         </el-space>
     </div>
 </template>
+
+<style lang="scss" scoped>
+.layout-history {
+    align-self: flex-start;
+    display: flex;
+    width: 100%;
+    padding: 4px;
+    border-bottom: 1px solid #e5e7eb;
+
+    &-space {
+        flex: 1 1 0%;
+
+        &-tag {
+            margin: 4px;
+            cursor: pointer;
+        }
+    }
+}
+</style>

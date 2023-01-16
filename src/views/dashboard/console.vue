@@ -1,18 +1,15 @@
 <script setup lang="ts">
-import useLayout from '@/hooks/useLayout';
+import { useUserStore } from '@/store/user';
+
+const userStore = useUserStore()
 </script>
 
 <template>
     <div>
-        {{ useLayout.history }}
+        {{ userStore.token }}
         <br />
         ==============
         <br />
-        {{ useLayout.addHistoryTab }}
-        <br />
-        ==============
-        <br />
-        {{ $route.meta.menu }}
     </div>
 </template>
 
