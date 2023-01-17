@@ -1,130 +1,55 @@
 <script setup lang="ts">
-import { reactive, ref } from "vue"
-import { login } from "@/api/account"
-import { getUserInfo } from "@/api/user"
-import { useRouter } from "vue-router"
-import { useUserStore } from "@/store/user"
-import { setToken } from "@/utils/auth"
-
+import { reactive } from 'vue';
 const loginForm = reactive({
     username: '',
     password: ''
 })
-
-const loginFormRef = ref()
-
-const router = useRouter()
-const userStore = useUserStore()
-
-const validateUsername = (rule: unknown, value: string | undefined, callback: (msg?: string) => void) => {
-    if (!value) {
-        callback('账户不能为空')
-    } else {
-        callback()
-    }
-}
-
-const validatePassword = (rule: unknown, value: string | undefined, callback: (msg?: string) => void) => {
-    if (!value) {
-        callback('密码不能为空')
-    } else {
-        callback()
-    }
-}
-
-const loginRules = reactive({
-    username: [{ validator: validateUsername, trigger: 'blur' }],
-    password: [{ validator: validatePassword, trigger: 'blur' }]
-})
-
-const handleLogin = () => {
-    loginFormRef.value.validate().then(() => {
-        login(loginForm).then(res => {
-            if (res.token) {
-                setToken(res.token)
-                userStore.setToken(res.token)
-                router.push('/')
-                getUserInfo()
-            }
-        })
-    }).catch(() => {
-        console.log('校验不通过')
-    })
-}
-
 </script>
 
 <template>
     <div class="login">
-        <!-- <el-card class="login-card" shadow="always"> -->
-        <div class="login-box">
-            <div class="login-box-title">
-                <span>通用后台管理系统</span>
+        <div class="login-card">
+            <div class="left">
+                <h1>登录</h1>
+                <p>欢迎来到三体世界，请输入账号密码！</p>
+                <form>
+                    <div class="form-item">
+                        <input v-model="loginForm.username" type="text" class="form-element" placeholder="请输入账号" />
+                    </div>
+                    <div class="form-item">
+                        <input v-model="loginForm.password" type="password" class="form-element" placeholder="请输入 密码" />
+                    </div>
+                    <div class="form-checkbox-item">
+                        <input type="checkbox" id="rememberMe" checked />
+                        <label for="rememberMe">记住我</label>
+                    </div>
+                    <div class="flex">
+                        <button type="button">登录</button>
+                        <a href="#">忘记密码，点我重置！</a>
+                    </div>
+                    <p style="margin-top: 3rem; margin-bottom: 1.5rem">第三方账号登入</p>
+                    <div class="social-buttons">
+                        <a href="#" class="wechat">
+                            <i class="bi bi-wechat"></i>
+                        </a>
+                        <a href="#" class="twitter">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="#" class="github">
+                            <i class="bi bi-github"></i>
+                        </a>
+                    </div>
+                </form>
             </div>
-            <el-form ref="loginFormRef" class="login-box-form" :model="loginForm" :rules="loginRules">
-                <el-form-item prop="username">
-                    <el-input v-model="loginForm.username" type="text" size="large" placeholder="请输入账号"
-                        autocomplete="off" />
-                </el-form-item>
-                <el-form-item prop="password">
-                    <el-input v-model="loginForm.password" type="password" size="large" placeholder="请输入密码"
-                        autocomplete="off" />
-                </el-form-item>
-                <div class="login-box-form-forget"><a>忘记密码</a></div>
-                <el-form-item>
-                    <el-button type="primary" class="login-box-form-button" @click="handleLogin()">登陆</el-button>
-                </el-form-item>
-                <div class="login-box-form-register">还没有账号?<a>注册账号</a></div>
-            </el-form>
+            <div class="right">
+                <h2>自然选择号欢迎您登舰！</h2>
+                <p>如果你没有账号，你想要现在注册一个吗？</p>
+                <a href="#">注册</a>
+            </div>
         </div>
-        <!-- </el-card> -->
     </div>
 </template>
 
-<style lang="scss">
-.login {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    background: url('../../assets/background.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-    justify-content: center;
-
-    &-box {
-        width: 25rem;
-        margin-left: auto;
-        margin-right: auto;
-        justify-content: center;
-        border-radius: 1.5rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-        background-color: #f3f4f6;
-
-        &-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        &-form {
-
-            &-forget {
-                font-size: 0.9rem;
-                text-align: right;
-            }
-
-            &-button {
-                width: 100%;
-            }
-
-            &-register {
-                text-align: center;
-            }
-        }
-    }
-}
+<style lang="scss" scoped>
+@import '@/styles/login.scss';
 </style>

@@ -46,7 +46,7 @@ const userStore = useUserStore()
 }
 
 .container .page:first-child {
-    background-image: url(./my.jpeg);
+    background-image: url(../../../src/assets/background.webp);
     background-color: rgba(0, 0, 0, .2);
 }
 
@@ -55,33 +55,33 @@ const userStore = useUserStore()
     transform-origin: 0 0;
     transition: transform 10s;
     background-color: rgba(179, 15, 64, 0.6);
-    background-image: url(./my2.jpeg);
+    background-image: url(../../../src/assets/background.webp);
 }
 
 .container .page:nth-child(3) {
     transform: translateZ(300px);
     background-color: rgba(22, 160, 137, 0.7);
-    background-image: url(./my3.jpeg);
+    background-image: url(../../../src/assets/background.webp);
 }
 
 .container .page:nth-child(4) {
     transform: rotateX(-90deg);
     transform-origin: -300px 300px;
     background-color: rgba(210, 212, 56, 0.2);
-    background-image: url(./my4.jpeg);
+    background-image: url(../../../src/assets/background.webp);
 }
 
 .container .page:nth-child(5) {
     transform: rotateY(-90deg);
     transform-origin: 0 0;
     background-color: rgba(201, 23, 23, 0.6);
-    background-image: url(./my5.jpeg);
+    background-image: url(../../../src/assets/background.webp);
 }
 
 .container .page:nth-child(6) {
     transform: rotateY(-90deg) translateZ(-300px);
     transform-origin: 0 300px;
     background-color: rgba(16, 149, 182, 0.2);
-    background-image: url(./my6.jpeg);
+    background-image: url(../../../src/assets/background.webp);
 }
 </style>
