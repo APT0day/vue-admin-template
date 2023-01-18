@@ -16,169 +16,180 @@
   }
 
   &-card {
-    background-color: #f3f4f6;
+    background-color: #ffffff;
     border: 1px solid #ddd;
-    box-shadow: 0 10px 50px -30px black;
+    box-shadow: 0 10px 50px -30px #000000;
     width: 40rem;
     border-radius: 30px;
     overflow: hidden;
     display: grid;
     grid-template-columns: auto auto;
+
+    a {
+      text-decoration: none;
+      color: #000000;
+    }
+
+    .left {
+      padding: 4rem;
+    }
+
+    .right {
+      padding: 4rem;
+      background: url("../assets/left.png") center;
+      background-size: cover;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      text-align: center;
+
+      &:after {
+        content: "";
+        position: absolute;
+        background: linear-gradient(90deg, #ffffff, #ffffff22);
+        inset: 0;
+      }
+
+      * {
+        z-index: 1;
+      }
+
+      a {
+        display: inline-block;
+        padding: 0.75rem 1.875rem;
+        font-size: 1rem;
+        border: 2px solid #000000;
+        color: #000000;
+        border-radius: 3.125rem;
+        cursor: pointer;
+        transition: all 0.3;
+        font-weight: 600;
+
+        &:hover {
+          background-color: #000000;
+          color: #ffffff;
+        }
+      }
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    .form-element {
+      width: 100%;
+      border: none;
+      background-color: #ffffff;
+      padding: 1.25rem 1.875rem;
+      font-size: 1.125rem;
+      border-radius: 3.125rem;
+      transition: box-shadow 0.2s;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #000000;
+      }
+    }
+
+    input[type="checkbox"] {
+      accent-color: #000000;
+      width: 1rem;
+      height: 1rem;
+    }
+
+    form {
+      margin-top: 3rem;
+
+      & > * {
+        margin-top: 1rem;
+      }
+
+      button {
+        background-color: #000000;
+        color: #ffffff;
+        border: none;
+        padding: 1.25rem 2.5rem;
+        border-radius: 3.125rem;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.125rem;
+        transition: all 0.2s;
+
+        &:active {
+          scale: 0.95;
+          background-color: darken(#000000, 10%);
+        }
+      }
+
+      .from-check-item {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        margin-left: 0.3125rem;
+      }
+    }
   }
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 1rem;
 
   a {
-    text-decoration: none;
-    color: #ffffff;
-  }
-
-  .left {
-    padding: 4rem;
-
-    &:last-child {
-      background: url("../../../src/assets/bg.webp") center;
-      background-size: cover;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-
-      &:after {
-        content: "";
-        position: absolute;
-        background: linear-gradient(90deg, white, #ffffff22);
-        inset: 0;
-      }
-
-      * {
-        z-index: 1;
-      }
-
-      a {
-        display: inline-block;
-        padding: 12px 30px;
-        font-size: 16px;
-        border: 2px solid #000000;
-        color: black;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.3;
-        font-weight: 600;
-
-        &:hover {
-          background-color: #000000;
-          color: white;
-        }
-      }
-    }
-
-    &:last-child {
-      text-align: center;
-    }
-  } 
-
-  .right {
-    padding: 4rem;
-
-    &:last-child {
-      background: url("../../../src/assets/bg.webp") center;
-      background-size: cover;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-
-      &:after {
-        content: "";
-        position: absolute;
-        background: linear-gradient(90deg, white, #ffffff22);
-        inset: 0;
-      }
-
-      * {
-        z-index: 1;
-      }
-
-      a {
-        display: inline-block;
-        padding: 12px 30px;
-        font-size: 16px;
-        border: 2px solid #000000;
-        color: black;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.3;
-        font-weight: 600;
-
-        &:hover {
-          background-color: #000000;
-          color: white;
-        }
-      }
-    }
-
-    &:last-child {
-      text-align: center;
-    }
-  }
-
-  h1 {
-    margin-bottom: 15px;
-  }
-
-  .form-element {
-    width: 100%;
-    border: none;
-    background-color: white;
-    padding: 20px 30px;
-    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
     border-radius: 50px;
-    transition: box-shadow 0.2s;
+    font-size: 22px;
+    color: white;
+    background-color: green;
 
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 2px #000000;
+    &.wechat {
+      background-color: #06ca5c;
+    }
+
+    &.twitter {
+      background-color: #55acee;
+    }
+
+    &.github {
+      background-color: #111;
+    }
+
+    &:hover {
+      scale: 0.95;
+    }
+  }
+}
+
+@media (max-width: 62rem) {
+  .login-card {
+    display: block;
+    width: 31.25rem;
+    text-align: center;
+
+    .right {
+      display: none;
     }
   }
 
-  input[type="checkbox"] {
-    accent-color: #000000;
-    width: 16px;
-    height: 16px;
+  .button {
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  form {
-    margin-top: 3rem;
-
-    & > * {
-      margin-top: 1rem;
-    }
-
-    button {
-      background-color: #000000;
-      color: white;
-      border: none;
-      padding: 20px 40px;
-      border-radius: 50px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 18px;
-      transition: all 0.2s;
-
-      &:active {
-        scale: 0.95;
-        background-color: darken(#000000, 10%);
-      }
-    }
-
-    .form-check-item {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      margin-left: 5px;
-    }
+  .social-buttons {
+    justify-content: center;
   }
 }

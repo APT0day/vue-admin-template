@@ -1,9 +1,27 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
+import { useUserStore } from '@/store/user';
+import { login } from '@/api/account';
+import { setToken } from '@/utils/auth';
+
 const loginForm = reactive({
     username: '',
     password: ''
 })
+
+const router = useRouter()
+const userStore = useUserStore()
+
+const handleClick = () => {
+    login(loginForm).then(res => {
+        if (res.token) {
+            setToken(res.token)
+            userStore.setToken(res.token)
+            router.push('/')
+        }
+    })
+}
 </script>
 
 <template>
@@ -11,20 +29,20 @@ const loginForm = reactive({
         <div class="login-card">
             <div class="left">
                 <h1>登录</h1>
-                <p>欢迎来到三体世界，请输入账号密码！</p>
+                <p>欢迎来到三体世界</p>
                 <form>
                     <div class="form-item">
                         <input v-model="loginForm.username" type="text" class="form-element" placeholder="请输入账号" />
                     </div>
                     <div class="form-item">
-                        <input v-model="loginForm.password" type="password" class="form-element" placeholder="请输入 密码" />
+                        <input v-model="loginForm.password" type="password" class="form-element" placeholder="请输入密码" />
                     </div>
                     <div class="form-checkbox-item">
                         <input type="checkbox" id="rememberMe" checked />
                         <label for="rememberMe">记住我</label>
                     </div>
-                    <div class="flex">
-                        <button type="button">登录</button>
+                    <div class="button">
+                        <button type="button" @click="handleClick">登录</button>
                         <a href="#">忘记密码，点我重置！</a>
                     </div>
                     <p style="margin-top: 3rem; margin-bottom: 1.5rem">第三方账号登入</p>
