@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from "vue-router";
 
-const pre = "test-";
+const pre = "dashboard-";
 
 export default {
   path: "/test",
@@ -8,10 +8,16 @@ export default {
   meta: {
     auth: true,
     menu: {
-      title: "首页",
+      title: "test",
       icon: "Monitor",
     },
   },
   component: () => import("@/layouts/index.vue"),
-  children: [],
+  children: [
+    {
+      path: "",
+      name: ``,
+      component: () => import("@/views/test/test.vue"),
+    },
+  ],
 } as RouteRecordRaw;

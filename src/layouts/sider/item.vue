@@ -20,7 +20,7 @@ const handleClick = (toName: string | undefined) => {
 <template>
     <template v-for="(menu, index) in props.menu" :key="index">
         <template v-if="!menu.children?.length">
-            <el-menu-item :index="menu.name">
+            <el-menu-item :index="menu.name" @click="handleClick(menu.name)">
                 <el-icon>
                     <component :is="menu.icon" />
                 </el-icon>

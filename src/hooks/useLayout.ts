@@ -22,7 +22,7 @@ class Menu {
   getMenusByRouter() {
     return router
       .getRoutes()
-      .filter((route) => route.children.length && route.meta.menu)
+      .filter((route) => route.meta.menu?.icon)
       .map((route) => {
         const menu: IMenu = { ...route.meta?.menu };
         menu.name = this.filterName(route.name);
