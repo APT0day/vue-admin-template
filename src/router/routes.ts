@@ -1,7 +1,7 @@
 import { RouteRecordRaw } from "vue-router";
 import dashboard from "./modules/dashboard";
+import amenu from "./modules/amenu";
 import errors from "./modules/errors";
-import test from "./modules/test"
 
 // 主框架内显示
 const routes: RouteRecordRaw[] = [
@@ -30,8 +30,8 @@ const routes: RouteRecordRaw[] = [
     component: () => import("@/views/errors/404.vue"),
   },
   dashboard,
+  amenu,
   errors,
-  test
 ];
 
 export default routes;

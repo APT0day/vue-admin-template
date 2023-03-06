@@ -1,23 +1,22 @@
 import { RouteRecordRaw } from "vue-router";
 
-const pre = "dashboard-";
-
 export default {
-  path: "/test",
-  name: "test",
+  path: "/amenu",
+  name: "amenu",
+  redirect: "/amenu",
   meta: {
     auth: true,
     menu: {
-      title: "test",
-      icon: "Monitor",
+      title: "一级菜单",
+      icon: "Menu",
     },
   },
   component: () => import("@/layouts/index.vue"),
   children: [
     {
-      path: "",
-      name: ``,
-      component: () => import("@/views/test/test.vue"),
+      path: "/amenu",
+      name: "amenu",
+      component: () => import("@/views/amenu/index.vue"),
     },
   ],
 } as RouteRecordRaw;
